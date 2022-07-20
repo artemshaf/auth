@@ -3,7 +3,7 @@ import LoginForm from "./components/LoginForm";
 import { Context } from "./index";
 import { observer } from "mobx-react-lite";
 import { IUser } from "./models/dtos/IUser";
-import UserService from "./services/auth/UserService";
+import UserService from "./services/user/UserService";
 
 const App: FC = () => {
   const { store } = useContext(Context);
