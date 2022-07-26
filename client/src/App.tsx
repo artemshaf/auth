@@ -1,54 +1,29 @@
-import React, { FC, useContext, useEffect, useState } from "react";
-import LoginForm from "./components/LoginForm";
-import { Context } from "./index";
+import { FC, useContext, useEffect } from "react";
 import { observer } from "mobx-react-lite";
-import { IUser } from "./models/dtos/IUser";
-import UserService from "./services/user/UserService";
+import { Context } from "./store/context";
+import LoginForm from "./components/Bussiness/Login/LoginForm";
+import { withLayout } from "./components/Layout/Layout";
+import { BrowserRouter } from "react-router-dom";
+import AppRouter from "./components/Bussiness/AppRouter/AppRouter";
 
 const App: FC = () => {
   const { store } = useContext(Context);
-  const [users, setUsers] = useState<IUser[]>([]);
 
   useEffect(() => {
     if (localStorage.getItem("token")) {
       store.checkAuth();
     }
-  }, []);
+  }, [store]);
 
-  async function getUsers() {
-    try {
-      const response = await UserService.fetchUsers();
-      setUsers(response.data);
-    } catch (e) {
-      console.log(e);
-    }
-  }
+  // if (store.isLoading) {
+  //   return <div>Загрузка...</div>;
+  // }
 
-  if (store.isLoading) {
-    return <div>Загрузка...</div>;
-  }
+  // if (!store.isAuth) {
+  //   return <LoginForm>Зарегистрируйтесь</LoginForm>;
+  // }
 
-  if (!store.isAuth) {
-    return (
-      <div>
-        <LoginForm />
-      </div>
-    );
-  }
-
-  return (
-    <div>
-      <h1>{store.isAuth ? `Пользователь авторизован ${store.user.email}` : "АВТОРИЗУЙТЕСЬ"}</h1>
-      <h1>{store.user.isActivated ? "Аккаунт подтвержден по почте" : "ПОДТВЕРДИТЕ АККАУНТ!!!!"}</h1>
-      <button onClick={() => store.logout()}>Выйти</button>
-      <div>
-        <button onClick={getUsers}>Получить пользователей</button>
-      </div>
-      {users.map((user) => (
-        <div key={user.email}>{user.email}</div>
-      ))}
-    </div>
-  );
+  return <></>;
 };
 
-export default observer(App);
+export default observer(withLayout(App));

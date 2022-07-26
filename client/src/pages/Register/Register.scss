@@ -1,0 +1,51 @@
+@tailwind utilities;
+@layer utilities {
+  .register {
+    @apply relative md:m-[50px];
+    &__form {
+      @apply my-4 p-8 text-black bg-light border-gray-300 border-2 rounded-md md:w-[max(400px,45%)] sm:w-[min(375px,100%)];
+
+      &__title {
+        @apply mb-7;
+      }
+
+      &__descr {
+        @apply mb-10;
+      }
+
+      &__actions {
+        &__block {
+          @apply mb-8 flex md:flex-row items-center justify-between flex-col gap-y-5;
+        }
+        &__email {
+          @apply mb-4 text-black;
+        }
+        &__name {
+          @apply mb-4 text-black;
+        }
+        &__password {
+          @apply mb-6 text-black;
+
+          &_confirm {
+            @apply mb-6 text-black;
+          }
+        }
+        &__btn {
+          @apply mb-12;
+        }
+        &__link {
+          &__register {
+            @apply block text-center opacity-100 font-bold;
+            & > span {
+              @apply opacity-50 font-medium;
+            }
+          }
+        }
+      }
+    }
+
+    &__img {
+      @apply absolute h-full object-cover -z-10 right-0 top-0;
+    }
+  }
+}

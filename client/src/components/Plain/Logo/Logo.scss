@@ -1,0 +1,10 @@
+.logo {
+  @apply my-5 flex items-center justify-center duration-300;
+
+  & > * {
+    @apply border-b-2 border-transparent duration-1000;
+  }
+  & > *:hover {
+    @apply fill-primary-blue-500 duration-300 border-b-2 border-primary-blue-500;
+  }
+}

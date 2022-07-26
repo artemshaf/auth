@@ -1,0 +1,61 @@
+@tailwind components;
+@layer components {
+  .metric__list-item {
+    @apply bg-white border border-gray-200 rounded-md duration-md flex justify-between p-6;
+    &:hover {
+      @apply shadow-md scale-105;
+    }
+    &__info {
+      @apply flex flex-col justify-center items-start;
+      &__text {
+        @apply font-medium text-black;
+      }
+
+      &__count {
+        @apply font-medium text-black mt-auto;
+      }
+    }
+
+    &__graph {
+      @apply w-[96px] h-[96px] flex items-center justify-center rounded-[100px] border-[11px] z-10 animate-spin-slow;
+
+      &__container {
+        @apply relative;
+        & > .fake-circle {
+          @apply absolute top-0 w-[96px] h-[96px] rounded-[100px] animate-spin-slow border-[10px] z-0;
+        }
+      }
+
+      &_green {
+        @apply relative border-green-500 z-10;
+        & + .fake-circle {
+          @apply rounded-[100px] fill-green-100 stroke-green-100  border-green-100 z-0;
+        }
+      }
+      &_blue {
+        @apply relative fill-primary-blue-100 stroke-primary-blue-100 border-primary-blue-500 z-10;
+        & + .fake-circle {
+          @apply rounded-[100px] fill-primary-blue-100 stroke-primary-blue-100  border-primary-blue-100 z-0;
+        }
+      }
+      &_red {
+        @apply relative fill-red-100 stroke-red-100 border-red-500 z-10;
+        & + .fake-circle {
+          @apply rounded-[100px] fill-red-100 stroke-red-100  border-red-100 z-0;
+        }
+      }
+      &_3-4 {
+        @apply border-r-transparent;
+      }
+      &_2-4 {
+        @apply border-b-transparent;
+      }
+      &_1-4 {
+        @apply border-l-transparent;
+      }
+      &_0 {
+        @apply border-none;
+      }
+    }
+  }
+}

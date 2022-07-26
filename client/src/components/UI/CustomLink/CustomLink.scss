@@ -1,0 +1,15 @@
+@tailwind base;
+@layer base {
+  .custom-link {
+    border: 1px;
+    border-right: 3px solid transparent;
+    &_active {
+      border: 1px solid;
+      border-right: 3px solid;
+      @apply border-primary-blue-500 bg-gray-200;
+      & > * {
+        @apply fill-primary-blue-500 text-primary-blue-500 stroke-primary-blue-500 stroke-[1];
+      }
+    }
+  }
+}

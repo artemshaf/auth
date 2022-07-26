@@ -1,0 +1,54 @@
+@tailwind base;
+@layer base {
+  html {
+    height: 100%;
+  }
+  body {
+    min-height: 100vh;
+    box-sizing: border-box;
+  }
+  #root {
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+  }
+  main {
+    flex: 1 1 auto;
+  }
+  h1 {
+    font-size: 36px;
+    line-height: 42px;
+  }
+  h2 {
+    font-size: 26px;
+    line-height: 36px;
+  }
+  h3 {
+    font-size: 22px;
+    line-height: 30px;
+  }
+  h4 {
+    font-size: 16px;
+    line-height: 24px;
+  }
+  h5 {
+    font-size: 14px;
+    line-height: 22px;
+  }
+  h6 {
+    font-size: 12px;
+    line-height: 18px;
+  }
+  ::-webkit-scrollbar {
+    width: 8px;
+    @apply bg-grey-300;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-grey-500 duration-md;
+
+    &:hover {
+      @apply bg-grey-600;
+    }
+  }
+}

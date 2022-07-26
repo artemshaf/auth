@@ -1,0 +1,9 @@
+@tailwind components;
+@layer components {
+  .avatar-stack__list {
+    @apply flex;
+    &-item {
+      @apply -ml-[18px];
+    }
+  }
+}

@@ -1,0 +1,10 @@
+@tailwind utilities;
+@layer utilities {
+  .login-form {
+    @apply bg-dark-blue py-10 px-5 mx-auto lg:w-1/2 md:w-2/3 sm:w-4/5 w-full rounded-md;
+
+    &__title {
+      @apply text-white text-center;
+    }
+  }
+}

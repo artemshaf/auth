@@ -1,0 +1,40 @@
+@tailwind components;
+@layer components {
+  .input {
+    @apply relative bg-light py-2 px-5 rounded-full border-2 border-grey-200 placeholder:text-grey-300 placeholder:duration-lg duration-lg;
+
+    &:hover {
+      @apply bg-grey-200 border-grey-300 placeholder:text-grey-500;
+    }
+
+    &:focus {
+      @apply border-primary-blue-500 outline-primary-blue-500;
+    }
+
+    &-label {
+      @apply flex flex-col relative;
+    }
+    &-title {
+      @apply mb-2 ml-5;
+    }
+    &_white {
+      @apply bg-light;
+    }
+    &__dark {
+      @apply bg-dark-blue border-2 border-light;
+    }
+    &__error {
+      @apply text-red-500 absolute -bottom-6 left-5;
+    }
+    &_error {
+      @apply border-red-500;
+    }
+
+    &__hidden-text {
+      @apply absolute top-1 right-5 cursor-pointer duration-md text-sm hidden sm:block;
+      &:hover {
+        @apply scale-110;
+      }
+    }
+  }
+}

@@ -1,0 +1,34 @@
+@tailwind components;
+@layer components {
+  .large-card__list-item {
+    @apply p-6 flex flex-col border-gray-200 border-2 rounded-[12px] duration-md;
+    &:hover {
+      @apply shadow-xl translate-x-2 -translate-y-4;
+    }
+    &__img {
+      @apply w-full object-cover rounded-[8px] mb-6;
+    }
+
+    &__title {
+      @apply mb-2;
+    }
+
+    &__description {
+      @apply mb-5;
+    }
+
+    &__meta-list {
+      @apply flex gap-4 items-center justify-evenly mb-5 flex-wrap;
+      &-item {
+        @apply flex gap-x-2 items-center;
+        &__text {
+          @apply ml-2;
+        }
+      }
+    }
+
+    &__btn {
+      @apply p-5;
+    }
+  }
+}

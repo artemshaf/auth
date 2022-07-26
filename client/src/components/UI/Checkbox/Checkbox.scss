@@ -1,0 +1,48 @@
+@tailwind components;
+@layer components {
+  .checkbox {
+    appearance: none;
+    display: block;
+
+    &__container {
+      @apply relative cursor-pointer flex items-center;
+
+      &:hover + .checkbox-fake {
+        @apply border-2 border-grey-300;
+      }
+    }
+
+    &__children {
+      @apply ml-3 align-middle;
+    }
+
+    &:hover + .checkbox-fake {
+      @apply border-2 border-grey-500;
+    }
+    &:checked + .checkbox-fake {
+      @apply border-2 bg-primary-blue-500 border-primary-blue-500;
+    }
+
+    &:checked + .checkbox-fake::before {
+      opacity: 1;
+    }
+  }
+
+  .checkbox-fake {
+    @apply inline-block w-[18px] h-[18px] border-2 bg-transparent relative rounded-[4px] duration-md;
+  }
+
+  .checkbox-fake::before {
+    content: "";
+    position: absolute;
+    display: inline-block;
+    top: 50%;
+    left: 50%;
+    width: 12px;
+    height: 12px;
+    transform: translate(-50%, -50%);
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='12' viewBox='0 0 12 12' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M4.49996 8.08492L2.41496 5.99992L1.70496 6.70492L4.49996 9.49992L10.5 3.49992L9.79496 2.79492L4.49996 8.08492Z' fill='white'/%3E%3C/svg%3E%0A");
+    opacity: 0;
+    transition: var(--transition-lg);
+  }
+}

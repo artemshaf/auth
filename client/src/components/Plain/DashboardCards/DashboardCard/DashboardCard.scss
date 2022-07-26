@@ -1,0 +1,24 @@
+@tailwind components;
+@layer components {
+  .dasboards__list-item {
+    &__info {
+      &__text {
+      }
+
+      &__count {
+      }
+    }
+
+    &__graph {
+      @apply w-[95px] h-[95px] border-r-[100px] flex items-center justify-center;
+
+      &_green {
+        @apply bg-green-100 fill-green-100 stroke-green-100 border-green-500;
+      }
+      &_blue {
+      }
+      &_red {
+      }
+    }
+  }
+}

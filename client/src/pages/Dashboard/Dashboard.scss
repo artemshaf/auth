@@ -1,0 +1,25 @@
+@tailwind components;
+@layer components {
+  .dashboard {
+    &__container {
+      @apply my-5;
+    }
+    &__top-actions {
+      @apply flex items-center justify-between mb-6;
+      &__title {
+      }
+      &__list {
+        @apply flex gap-x-4;
+      }
+    }
+    &__metrics {
+      @apply my-9;
+    }
+
+    &__favorits {
+      &-title {
+        @apply mb-6;
+      }
+    }
+  }
+}

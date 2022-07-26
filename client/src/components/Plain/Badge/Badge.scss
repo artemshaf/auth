@@ -1,0 +1,43 @@
+@tailwind components;
+@layer components {
+  .badge {
+    @apply py-[5px] px-[10px] border border-transparent rounded-[100px] text-center align-middle;
+
+    &_yellow-100 {
+      @apply bg-yellow-100 text-yellow-800;
+    }
+    &_yellow-500 {
+      @apply bg-yellow-500 text-yellow-50;
+    }
+    &_red-100 {
+      @apply bg-red-100 text-yellow-800;
+    }
+    &_red-500 {
+      @apply bg-red-500 text-red-50;
+    }
+    &_blue-100 {
+      @apply bg-blue-100 text-blue-800;
+    }
+    &_blue-500 {
+      @apply bg-blue-500 text-blue-50;
+    }
+    &_white-100 {
+      @apply bg-white text-black;
+    }
+    &_white-500 {
+      @apply bg-white border-gray-200 text-black;
+    }
+    &_grey-100 {
+      @apply bg-grey-100 text-grey-800;
+    }
+    &_grey-500 {
+      @apply bg-grey-500 text-yellow-50;
+    }
+    &_green-100 {
+      @apply bg-green-100 text-green-800;
+    }
+    &_green-500 {
+      @apply bg-green-500 text-green-50;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@tailwind components;
+@layer components {
+  .project-list__list {
+    @apply flex flex-col xl:overflow-x-scroll 2xl:overflow-x-auto min-w-[1200px] mx-0;
+
+    &-item {
+      &:nth-child(2n) {
+        @apply bg-grey-100;
+      }
+    }
+  }
+}
+
+@tailwind base;
+@layer base {
+  .main__body {
+    @apply mx-0;
+  }
+}

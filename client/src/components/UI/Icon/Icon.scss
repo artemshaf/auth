@@ -1,0 +1,6 @@
+.icon__container {
+  & > * {
+    color: currentColor;
+    fill: currentColor;
+  }
+}

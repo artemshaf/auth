@@ -1,0 +1,6 @@
+@tailwind utilities;
+@layer utilities {
+  .custom-table-cell {
+    @apply p-5 flex duration-md;
+  }
+}

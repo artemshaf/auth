@@ -1,0 +1,17 @@
+.sidebar {
+  @apply sm:hidden relative;
+  &_visible {
+    @apply absolute sm:flex sm:w-full sm:min-h-screen z-50 overflow-auto;
+  }
+  &:hover {
+    @apply bg-gray-100;
+  }
+  @apply bg-white min-h-screen duration-300 md:flex flex-col justify-between border-r w-[15%] min-w-[240px] relative;
+
+  &-burger {
+    @apply absolute top-0 left-0 z-[100] bg-primary-blue-100 p-2 rounded-full w-[48px] h-[48px] fill-slate-500;
+  }
+  &__container {
+    @apply relative;
+  }
+}

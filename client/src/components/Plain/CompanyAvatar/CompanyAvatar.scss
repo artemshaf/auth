@@ -1,0 +1,16 @@
+@tailwind components;
+@layer components {
+  .company-avatar {
+    &__block {
+      @apply flex items-center;
+    }
+
+    &__icon {
+      @apply w-[32px] h-[32px] rounded-full bg-black p-1;
+    }
+
+    &__text {
+      @apply ml-3 capitalize;
+    }
+  }
+}

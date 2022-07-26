@@ -1,0 +1,6 @@
+@tailwind utilities;
+@layer utilities {
+  .header {
+    @apply w-full p-5 bg-slate-500 flex justify-between;
+  }
+}

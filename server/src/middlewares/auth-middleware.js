@@ -1,5 +1,5 @@
 const ApiError = require("../exceptions/api-error");
-const tokenService = require("../services/token-service");
+const tokenService = require("../services/token/token-service");
 
 module.exports = (req, res, next) => {
   try {
@@ -12,7 +12,6 @@ module.exports = (req, res, next) => {
       return next(ApiError.UnAuthError());
     }
     const userData = tokenService.validateAccessToken(accessToken);
-		console.log(userData);
     if (!userData) {
       return next(ApiError.UnAuthError());
     }

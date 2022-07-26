@@ -1,0 +1,19 @@
+@tailwind components;
+@layer components {
+  .search-input {
+    @apply relative;
+    &__input {
+      & > input {
+        @apply pr-10;
+      }
+    }
+
+    &__icon {
+      @apply absolute top-[50%] right-[0] -translate-x-[50%] -translate-y-[50%] cursor-pointer duration-md;
+
+      &:hover {
+        @apply scale-110;
+      }
+    }
+  }
+}

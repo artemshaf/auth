@@ -1,0 +1,12 @@
+@tailwind components;
+@layer components {
+  .avatar-icon {
+    &_sm {
+      @apply w-[32px] h-[32px];
+    }
+
+    &_md {
+      @apply w-[40px] h-[40px];
+    }
+  }
+}

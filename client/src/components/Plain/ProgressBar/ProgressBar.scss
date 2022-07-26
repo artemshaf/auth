@@ -1,0 +1,44 @@
+@tailwind components;
+@layer components {
+  .progress-bar {
+    &__block {
+      @apply flex items-center;
+
+      &:hover {
+        & > progress-bar__done {
+          @apply animate-pulse;
+        }
+      }
+    }
+
+    @apply rounded-[13px] relative h-[13px] w-[80px];
+
+    &__done {
+      @apply rounded-[12px] w-[80px] h-full opacity-0 duration-lg bg-black -ml-[1px];
+
+      &_green {
+        @apply bg-green-500;
+      }
+      &_blue {
+        @apply bg-primary-blue-500;
+      }
+      &_red {
+        @apply bg-red-500;
+      }
+    }
+
+    &__text {
+      @apply ml-3;
+    }
+
+    &_green {
+      @apply bg-green-100;
+    }
+    &_blue {
+      @apply bg-primary-blue-100;
+    }
+    &_red {
+      @apply bg-red-100;
+    }
+  }
+}

@@ -1,0 +1,19 @@
+@tailwind utilities;
+@layer utilities {
+  .user-info-block {
+    @apply p-6 flex gap-x-4 items-center border-t-2;
+
+    &__icon {
+    }
+
+    &__info {
+      &__name {
+        @apply text-gray-800 text-body-lg;
+      }
+
+      &__roles {
+        @apply text-body-md text-gray-500;
+      }
+    }
+  }
+}

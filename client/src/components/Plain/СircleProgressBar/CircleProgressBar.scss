@@ -1,0 +1,24 @@
+@tailwind components;
+@layer components {
+  .circle-progress-bar {
+    @apply flex animate-spin-slow items-center justify-center;
+    &__container {
+      @apply relative;
+    }
+    &__bg {
+      fill: none;
+    }
+
+    &__progress {
+      fill: none;
+      stroke-linecap: round;
+    }
+
+    &__icon {
+      @apply absolute top-[50%] left-[50%] -translate-x-[50%] -translate-y-[50%] w-[24px] h-[24px];
+      & > * {
+        @apply fill-current;
+      }
+    }
+  }
+}

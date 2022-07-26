@@ -1,0 +1,36 @@
+@tailwind components;
+@layer components {
+  .button {
+    @apply px-4 py-2 duration-md rounded-full;
+    &_w-100 {
+      @apply w-full;
+    }
+    &_white {
+      @apply bg-light border-2 border-gray-200 text-dark;
+
+      &:hover {
+        @apply bg-grey-100 border-grey-300;
+      }
+
+      &:active {
+        @apply bg-light border-primary-blue-500;
+      }
+      &:disabled {
+        @apply cursor-not-allowed bg-grey-200 text-grey-400;
+      }
+    }
+    &_primary {
+      @apply bg-primary-blue-500 border-2 border-primary-blue-500 text-light;
+      &:hover {
+        @apply bg-primary-blue-600 border-primary-blue-400;
+      }
+
+      &:active {
+        @apply bg-primary-blue-400 border-primary-blue-500;
+      }
+      &:disabled {
+        @apply cursor-not-allowed bg-primary-blue-100 text-light;
+      }
+    }
+  }
+}
