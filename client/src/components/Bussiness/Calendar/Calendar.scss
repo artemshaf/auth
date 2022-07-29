@@ -1,0 +1,49 @@
+@tailwind components;
+@layer components {
+  .project-calendar {
+    @apply w-[100%];
+
+    & th,
+    & td {
+    }
+
+    & thead {
+      @apply bg-light;
+    }
+
+    & th {
+      @apply h-[40px];
+      &:first-child {
+        border-radius: 36px 0 0 0;
+      }
+      &:last-child {
+        border-radius: 0 36px 0 0;
+      }
+    }
+
+    & th:first-child {
+    }
+
+    & th:last-child {
+    }
+
+    & td {
+      @apply h-[160px] min-w-[80px] align-top text-center border-2 border-grey-300;
+    }
+
+    & > tbody > tr:last-child {
+      & > td:first-child {
+        @apply block;
+        border-radius: 0 0 0 36px;
+        border-top: transparent;
+        border-right: transparent;
+      }
+      & > td:last-child {
+        @apply block;
+        border-radius: 0 0 36px 0;
+        border-top: transparent;
+        border-left: transparent;
+      }
+    }
+  }
+}

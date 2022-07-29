@@ -7,9 +7,13 @@ export interface IProjectRow {
   peoples: JSX.Element;
   type: "build" | "reconstruction" | "commercial" | "residential";
   date: string;
+  id: number;
 }
 
 export interface IProjectRowProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement> {
+  extends DetailedHTMLProps<
+    HTMLAttributes<HTMLTableRowElement>,
+    HTMLTableRowElement
+  > {
   row: IProjectRow;
 }

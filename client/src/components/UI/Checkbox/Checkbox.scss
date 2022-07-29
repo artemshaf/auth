@@ -30,6 +30,12 @@
 
   .checkbox-fake {
     @apply inline-block w-[18px] h-[18px] border-2 bg-transparent relative rounded-[4px] duration-md;
+    &_error {
+      @apply border-red-700 border-2 animate-pulse;
+    }
+  }
+  .checkbox-fake_error {
+    @apply border-red-500 border-2;
   }
 
   .checkbox-fake::before {

@@ -6,5 +6,6 @@ export interface ILargeCardsProps
     HTMLAttributes<HTMLUListElement>,
     HTMLUListElement
   > {
+  limit?: number;
   cards: ILargeCard[];
 }

@@ -4,35 +4,50 @@ import { Button, Checkbox, CustomLink, Input } from "../../components/UI";
 import "./Login.scss";
 import cn from "classnames";
 import { Container } from "../../components/Layout/Container/Container";
-import { REGISTER_ROUTE } from "../../utils/consts";
+import { MAIN_ROUTE, REGISTER_ROUTE } from "../../utils/consts";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { LOGIN_EMAIL, LOGIN_PASSWORD } from "../../env";
-import { boolean } from "joi";
-import { useState } from "react";
+import { Context } from "../../store/context";
+import { observer } from "mobx-react-lite";
+import { Navigate } from "react-router-dom";
+import { useContext, useEffect, useState } from "react";
+import Badge from "../../components/Plain/Badge/Badge";
 
-export type Inputs = {
+export interface Inputs {
   email: string;
   password: string;
-};
+  isRemebmer: string;
+}
 
 const Login = ({ className, ...props }: ILoginProps) => {
-  // const { store } = useContext(Context);
-  // const [isRegistred, setIsRegistred] = useState<boolean>(true);
-  const [disabled, setDisabled] = useState<boolean>(false);
   const {
     register,
     handleSubmit,
     formState: { errors },
     reset,
-    clearErrors,
-  } = useForm<Inputs>();
+  } = useForm<Inputs>({});
+  const { store } = useContext(Context);
+  const [error, setError] = useState<string>("");
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    setDisabled(true);
-    console.log(data);
-    console.log(errors);
-    setDisabled(false);
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      store.checkAuth();
+    }
+  }, [store, error]);
+
+  const onSubmit: SubmitHandler<Inputs> = async (data: Inputs) => {
+    const result = await store.login(data.email, data.password);
+    if (result?.message) {
+      setError(result.message);
+    } else {
+      setError("");
+    }
+    reset();
   };
+
+  if (store.user.email) {
+    return <Navigate to={MAIN_ROUTE} />;
+  }
 
   return (
     <Container>
@@ -40,6 +55,11 @@ const Login = ({ className, ...props }: ILoginProps) => {
         <form className={cn("login__form")} onSubmit={handleSubmit(onSubmit)}>
           <h1 className={cn("login__form__title")}>Welcome!</h1>
           <h2 className={cn("login__form__descr")}>Sign in to Dashboard-App</h2>
+          {error && (
+            <Badge appearence="red-500" className="block mb-3">
+              {error}
+            </Badge>
+          )}
           <Input
             placeholder="Enter your User name"
             className={cn("login__form__actions__email")}
@@ -77,7 +97,14 @@ const Login = ({ className, ...props }: ILoginProps) => {
             Password
           </Input>
           <div className={cn("login__form__actions__block")}>
-            <Checkbox className={cn("login__form__actions__checkbox")}>
+            <Checkbox
+              error={errors.isRemebmer}
+              className={cn("login__form__actions__checkbox")}
+              {...register("isRemebmer", {
+                required: { value: true, message: "Согласитесь с нами!" },
+                value: "",
+              })}
+            >
               Rememebr me
             </Checkbox>
             <CustomLink
@@ -88,7 +115,7 @@ const Login = ({ className, ...props }: ILoginProps) => {
             </CustomLink>
           </div>
           <Button
-            disabled={disabled}
+            disabled={store.isLoading}
             width="full"
             appearence="primary"
             className={cn("login__form__actions__btn")}
@@ -108,4 +135,5 @@ const Login = ({ className, ...props }: ILoginProps) => {
     </Container>
   );
 };
-export default Login;
+
+export default observer(Login);

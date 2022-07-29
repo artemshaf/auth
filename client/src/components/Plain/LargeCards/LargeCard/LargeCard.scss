@@ -3,10 +3,10 @@
   .large-card__list-item {
     @apply p-6 flex flex-col border-gray-200 border-2 rounded-[12px] duration-md;
     &:hover {
-      @apply shadow-xl translate-x-2 -translate-y-4;
+      @apply shadow-xl translate-x-2 -translate-y-4 bg-light;
     }
     &__img {
-      @apply w-full object-cover rounded-[8px] mb-6;
+      @apply w-full h-[230px] object-cover rounded-[8px] mb-6;
     }
 
     &__title {

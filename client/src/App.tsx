@@ -1,10 +1,10 @@
 import { FC, useContext, useEffect } from "react";
 import { observer } from "mobx-react-lite";
 import { Context } from "./store/context";
-import LoginForm from "./components/Bussiness/Login/LoginForm";
 import { withLayout } from "./components/Layout/Layout";
-import { BrowserRouter } from "react-router-dom";
+import { BrowserRouter, Navigate } from "react-router-dom";
 import AppRouter from "./components/Bussiness/AppRouter/AppRouter";
+import { LOGIN_ROUTE } from "./utils/consts";
 
 const App: FC = () => {
   const { store } = useContext(Context);
@@ -15,13 +15,9 @@ const App: FC = () => {
     }
   }, [store]);
 
-  // if (store.isLoading) {
-  //   return <div>Загрузка...</div>;
-  // }
-
-  // if (!store.isAuth) {
-  //   return <LoginForm>Зарегистрируйтесь</LoginForm>;
-  // }
+  if (!store.isAuth) {
+    return <Navigate to={LOGIN_ROUTE} />;
+  }
 
   return <></>;
 };

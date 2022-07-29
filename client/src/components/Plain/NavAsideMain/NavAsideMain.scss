@@ -16,6 +16,14 @@
 
       &__text {
       }
+      @media screen and (max-width: 767px) {
+        & {
+          @apply p-2;
+        }
+        &__text {
+          @apply hidden;
+        }
+      }
     }
   }
 }

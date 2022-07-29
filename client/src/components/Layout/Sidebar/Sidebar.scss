@@ -1,17 +1,45 @@
 .sidebar {
-  @apply sm:hidden relative;
-  &_visible {
-    @apply absolute sm:flex sm:w-full sm:min-h-screen z-50 overflow-auto;
-  }
+  @apply relative;
+
   &:hover {
     @apply bg-gray-100;
   }
-  @apply bg-white min-h-screen duration-300 md:flex flex-col justify-between border-r w-[15%] min-w-[240px] relative;
+  @apply bg-white min-h-screen md:flex flex-col justify-between border-r relative duration-md;
 
-  &-burger {
-    @apply absolute top-0 left-0 z-[100] bg-primary-blue-100 p-2 rounded-full w-[48px] h-[48px] fill-slate-500;
+  &__burger {
+    @apply hidden  items-center justify-center;
   }
   &__container {
     @apply relative;
+  }
+}
+@media screen and (max-width: 767px) {
+  .sidebar {
+    &__burger {
+      @apply flex mx-auto w-full h-[30px] fill-red-500;
+    }
+    &__logo {
+      @apply hidden;
+    }
+
+    &__user-info {
+      @media screen and (max-width: 767px) {
+        & {
+          @apply p-2;
+        }
+        & > div {
+          @apply hidden;
+        }
+      }
+    }
+    &_visible {
+      @apply absolute top-0 left-0 z-10 h-screen right-0 bg-slate-100 overflow-y-auto duration-md px-10 py-3;
+
+      & span,
+      & p,
+      & div {
+        @apply block;
+      }
+    }
   }
 }

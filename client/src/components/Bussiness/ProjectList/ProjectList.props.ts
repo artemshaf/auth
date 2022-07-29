@@ -3,8 +3,8 @@ import { IProjectRow } from "./ProjectRow/ProjectRow.props";
 
 export interface IProjectListProps
   extends DetailedHTMLProps<
-    HTMLAttributes<HTMLUListElement>,
-    HTMLUListElement
+    HTMLAttributes<HTMLTableElement>,
+    HTMLTableElement
   > {
   table?: IProjectRow[];
 }

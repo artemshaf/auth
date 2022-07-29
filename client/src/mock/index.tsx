@@ -15,10 +15,11 @@ import Icon from "../components/UI/Icon/Icon";
 import CompanyAvatar from "../components/Plain/CompanyAvatar/CompanyAvatar";
 import AvatarStack from "../components/Plain/AvatarStack/AvatarStack";
 import { IProjectRow } from "../components/Bussiness/ProjectList/ProjectRow/ProjectRow.props";
+import { string } from "joi";
 
-export const largeCards = [
+export const dashboardCards = [
   {
-    img: Img,
+    img: [Img, Img2, Img3, Img4, Img5, Img6, Img7],
     title: "Boston family home",
     description:
       "A beautiful townhouse in the heart of Miami’s downtown district. With 3 bedrooms and a heated pool.",
@@ -36,9 +37,10 @@ export const largeCards = [
         text: "Boston",
       },
     ],
+    id: 1,
   },
   {
-    img: Img,
+    img: [Img, Img2, Img3, Img4, Img5, Img6, Img7],
     title: "Boston family home",
     description:
       "A beautiful townhouse in the heart of Miami’s downtown district. With 3 bedrooms and a heated pool.",
@@ -56,9 +58,10 @@ export const largeCards = [
         text: "Boston",
       },
     ],
+    id: 2,
   },
   {
-    img: Img2,
+    img: [Img, Img2, Img3, Img4, Img5, Img6, Img7],
     title: "Boston family home",
     description:
       "A beautiful townhouse in the heart of Miami’s downtown district. With 3 bedrooms and a heated pool.",
@@ -76,9 +79,10 @@ export const largeCards = [
         text: "Boston",
       },
     ],
+    id: 3,
   },
   {
-    img: Img3,
+    img: [Img, Img2, Img3, Img4, Img5, Img6, Img7],
     title: "Boston family home",
     description:
       "A beautiful townhouse in the heart of Miami’s downtown district. With 3 bedrooms and a heated pool.",
@@ -96,9 +100,10 @@ export const largeCards = [
         text: "Boston",
       },
     ],
+    id: 4,
   },
   {
-    img: Img4,
+    img: [Img, Img2, Img3, Img4, Img5, Img6, Img7],
     title: "Boston family home",
     description:
       "A beautiful townhouse in the heart of Miami’s downtown district. With 3 bedrooms and a heated pool.",
@@ -116,9 +121,10 @@ export const largeCards = [
         text: "Boston",
       },
     ],
+    id: 5,
   },
   {
-    img: Img,
+    img: [Img, Img2, Img3, Img4, Img5, Img6, Img7],
     title: "Boston family home",
     description:
       "A beautiful townhouse in the heart of Miami’s downtown district. With 3 bedrooms and a heated pool.",
@@ -136,9 +142,10 @@ export const largeCards = [
         text: "Boston",
       },
     ],
+    id: 6,
   },
   {
-    img: Img2,
+    img: [Img, Img2, Img3, Img4, Img5, Img6, Img7],
     title: "Boston family home",
     description:
       "A beautiful townhouse in the heart of Miami’s downtown district. With 3 bedrooms and a heated pool.",
@@ -156,9 +163,10 @@ export const largeCards = [
         text: "Boston",
       },
     ],
+    id: 7,
   },
   {
-    img: Img5,
+    img: [Img, Img2, Img3, Img4, Img5, Img6, Img7],
     title: "Boston family home",
     description:
       "A beautiful townhouse in the heart of Miami’s downtown district. With 3 bedrooms and a heated pool.",
@@ -176,6 +184,7 @@ export const largeCards = [
         text: "Boston",
       },
     ],
+    id: 8,
   },
 ];
 
@@ -189,6 +198,7 @@ export const taskCards = [
         icon: <Icon icon="bookMarks" />,
       },
     ],
+    id: 1,
   },
   {
     img: Img7,
@@ -199,6 +209,7 @@ export const taskCards = [
         icon: <Icon icon="bookMarks" />,
       },
     ],
+    id: 2,
   },
   {
     img: Img8,
@@ -209,6 +220,7 @@ export const taskCards = [
         icon: <Icon icon="bookMarks" />,
       },
     ],
+    id: 3,
   },
   {
     img: Img2,
@@ -219,6 +231,7 @@ export const taskCards = [
         icon: <Icon icon="bookMarks" />,
       },
     ],
+    id: 4,
   },
   {
     img: Img4,
@@ -229,6 +242,7 @@ export const taskCards = [
         icon: <Icon icon="bookMarks" />,
       },
     ],
+    id: 5,
   },
   {
     img: Img5,
@@ -239,6 +253,7 @@ export const taskCards = [
         icon: <Icon icon="bookMarks" />,
       },
     ],
+    id: 6,
   },
   {
     img: Img6,
@@ -249,6 +264,7 @@ export const taskCards = [
         icon: <Icon icon="bookMarks" />,
       },
     ],
+    id: 7,
   },
   {
     img: Img7,
@@ -259,6 +275,7 @@ export const taskCards = [
         icon: <Icon icon="bookMarks" />,
       },
     ],
+    id: 8,
   },
   {
     img: Img8,
@@ -269,14 +286,37 @@ export const taskCards = [
         icon: <Icon icon="bookMarks" />,
       },
     ],
+    id: 91,
   },
 ];
 
-export const microCard = {
-  img: Img2,
-  title: "Shoreditch Apt",
-  date: "10 December 2022",
-};
+export const microCard = [
+  {
+    img: Img2,
+    title: "Shoreditfasafsasfch Apt",
+    date: "1mfasasfber 2022",
+  },
+  {
+    img: Img3,
+    title: "Shoredifasfasfastch Apt",
+    date: "10 Decemfassfsafber 2022",
+  },
+  {
+    img: Img4,
+    title: "Shoredfasfsaasfitch Apt",
+    date: "asafsember 2022",
+  },
+  {
+    img: Img5,
+    title: "Shoredifsafssfafsatch Apt",
+    date: "10 December 2022",
+  },
+  {
+    img: Img6,
+    title: "Shore42214421421ditch Apt",
+    date: "4214242421421422",
+  },
+];
 
 export const userCard = {
   img: Img3,
@@ -312,83 +352,218 @@ export const userCard = {
 
 export const tableMock = [
   {
-    name: "Miami development",
+    name: "1t",
     status: "cancel",
     brand: <CompanyAvatar name="Tesla" avatar={tesla} />,
     peoples: <AvatarStack />,
     type: "build",
     date: "Wed 24 Dec",
+    id: 1,
   },
   {
-    name: "Prague apartment",
+    name: "2",
     status: "review",
     brand: <CompanyAvatar name="Nike Athletic" avatar={nike} />,
     peoples: <AvatarStack />,
     type: "residential",
     date: "Wed 06 Nov",
+    id: 2,
   },
   {
-    name: "Czech redevelopment",
-    status: "review",
+    name: "4",
+    status: "cancel",
     brand: <CompanyAvatar name="Sony" avatar={sony} />,
     peoples: <AvatarStack />,
     date: "Wed 12 Dec",
     type: "build",
+    id: 3,
   },
   {
     name: "Paris apartment blocks",
     status: "approved",
     brand: <CompanyAvatar name="Reebok" avatar={reebok} />,
     peoples: <AvatarStack />,
-    type: "reconstruction",
+    type: "residential",
     date: "Wed 07 Dec",
+    id: 4,
   },
   {
-    name: "India corporate property",
-    status: "progress",
+    name: "6",
+    status: "review",
     brand: <CompanyAvatar name="Apple" avatar={apple} />,
     peoples: <AvatarStack />,
     type: "commercial",
     date: "Wed 04 Dec",
+    id: 5,
   },
   {
-    name: "Miami development",
-    status: "cancel",
+    name: "7",
+    status: "review",
     brand: <CompanyAvatar name="Tesla" avatar={tesla} />,
     peoples: <AvatarStack />,
     type: "build",
     date: "Wed 24 Dec",
+    id: 6,
   },
   {
-    name: "Prague apartment",
+    name: "14",
     status: "review",
     brand: <CompanyAvatar name="Nike Athletic" avatar={nike} />,
     peoples: <AvatarStack />,
     type: "residential",
     date: "Wed 06 Nov",
+    id: 7,
   },
   {
-    name: "Czech redevelopment",
+    name: "8",
     status: "review",
     brand: <CompanyAvatar name="Sony" avatar={sony} />,
     peoples: <AvatarStack />,
     date: "Wed 12 Dec",
     type: "build",
+    id: 8,
   },
   {
-    name: "Paris apartment blocks",
-    status: "approved",
+    name: "12",
+    status: "progress",
     brand: <CompanyAvatar name="Reebok" avatar={reebok} />,
     peoples: <AvatarStack />,
-    type: "reconstruction",
+    type: "commercial",
     date: "Wed 07 Dec",
+    id: 9,
   },
   {
-    name: "India corporate property",
-    status: "progress",
+    name: "9",
+    status: "cancel",
     brand: <CompanyAvatar name="Apple" avatar={apple} />,
     peoples: <AvatarStack />,
     type: "commercial",
     date: "Wed 04 Dec",
+    id: 10,
   },
 ] as IProjectRow[];
+
+export interface IQuestionCard {
+  icon?: string;
+  title: string;
+  description: string;
+  to?: string;
+}
+
+export const questionCardsMock: IQuestionCard[] = [
+  {
+    icon: Img2,
+    title: "Profile and settings",
+    description: `Learn how to configure your profile, 
+set up notificaions and customise.`,
+    to: "/",
+  },
+  {
+    icon: Img3,
+    title: "Property listings",
+    description: `How our listings work, how to post new
+listings and how to respond to others.`,
+    to: "/",
+  },
+  {
+    icon: Img4,
+    title: "Messaging",
+    description: `How our listings work, how to post new
+listings and how to respond to others.`,
+    to: "/",
+  },
+  {
+    icon: Img5,
+    title: "Projects",
+    description: `How our listings work, how to post new
+listings and how to respond to others.`,
+    to: "/",
+  },
+  {
+    icon: Img6,
+    title: "Integrations",
+    description: `How to set up and manage your unique
+integration environment.`,
+    to: "/",
+  },
+  {
+    icon: Img2,
+    title: "Social media",
+    description: `How to use social media in conjunction
+with investly to maximise efficacy.`,
+    to: "/",
+  },
+  {
+    icon: Img4,
+    title: "Invoices",
+    description: `How to set up, manage, pay and send
+invoices within your application.`,
+    to: "/",
+  },
+  {
+    icon: Img6,
+    title: "Dashboard",
+    description: `How to configure and personalise
+the dashboard experience.`,
+    to: "/",
+  },
+];
+
+export const quickStartCards: IQuestionCard[] = [
+  {
+    title: "Post a property listing",
+    description: `How to set up and manage your unique integration environment.`,
+  },
+  {
+    title: "Post a property listing",
+    description: `How to set up and manage your unique integration environment.`,
+  },
+  {
+    title: "Post a property listing",
+    description: `How to set up and manage your unique integration environment.`,
+  },
+  {
+    title: "Post a property listing",
+    description: `How to set up and manage your unique integration environment.`,
+  },
+  {
+    title: "Post a property listing",
+    description: `How to set up and manage your unique integration environment.`,
+  },
+  {
+    title: "Post a property listing",
+    description: `How to set up and manage your unique integration environment.`,
+  },
+  {
+    title: "Post a property listing",
+    description: `How to set up and manage your unique integration environment.`,
+  },
+  {
+    title: "Post a property listing",
+    description: `How to set up and manage your unique integration environment.`,
+  },
+];
+
+export const monthNames: string[] = [
+  "January",
+  "February",
+  "March",
+  "April",
+  "May",
+  "June",
+  "July",
+  "August",
+  "September",
+  "October",
+  "November",
+  "December",
+];
+export const weekDayNames: string[] = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturdau",
+  "Sunday",
+];

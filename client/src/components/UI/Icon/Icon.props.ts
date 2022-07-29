@@ -47,7 +47,12 @@ import { ReactComponent as gesture } from "../../../assets/imgs/icons/gesture.sv
 import { ReactComponent as arrowDown } from "../../../assets/imgs/icons/arrow-down.svg";
 import { ReactComponent as arrowDrop } from "../../../assets/imgs/icons/arrow-drop.svg";
 
-import { SVGAttributes } from "react";
+import React, {
+  ForwardedRef,
+  ForwardRefRenderFunction,
+  LegacyRef,
+  SVGAttributes,
+} from "react";
 
 export const icons = {
   filterList,

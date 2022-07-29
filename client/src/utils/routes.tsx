@@ -1,9 +1,13 @@
 import { MainPage } from "../pages";
 import Dashboard from "../pages/Dashboard/Dashboard";
+import DashboardItem from "../pages/Dashboard/DashboardItem/DashboardItem";
+import Documentation from "../pages/Documentation/Documentation";
 import Login from "../pages/Login/Login";
 import Projects from "../pages/Projects/Projects";
 import Register from "../pages/Register/Register";
+import Units from "../pages/Units/Units";
 import {
+  DASHBOARD_ITEM_ROUTE_ID,
   DASHBOARD_ROUTE,
   DOCUMENTATION_ROUTE,
   HELP_ROUTE,
@@ -29,8 +33,12 @@ export const authRoutes: IRoute[] = [
     element: <Dashboard />,
   },
   {
+    path: DASHBOARD_ITEM_ROUTE_ID,
+    element: <DashboardItem />,
+  },
+  {
     path: UNITS_ROUTE,
-    element: <MainPage />,
+    element: <Units />,
   },
   {
     path: INOVOICES_ROUTE,
@@ -50,7 +58,7 @@ export const authRoutes: IRoute[] = [
   },
   {
     path: DOCUMENTATION_ROUTE,
-    element: <MainPage />,
+    element: <Documentation />,
   },
   {
     path: SETTINGS_ROUTE,

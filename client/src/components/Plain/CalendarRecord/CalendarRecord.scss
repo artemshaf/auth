@@ -1,0 +1,13 @@
+@tailwind utilities;
+@layer utilities {
+  .calendar-record {
+    @apply flex gap-x-2 items-center;
+    &__badge {
+      @apply w-[8px] h-[16px] p-0;
+    }
+    &__time {
+    }
+    &__text {
+    }
+  }
+}

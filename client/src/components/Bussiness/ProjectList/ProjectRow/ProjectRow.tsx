@@ -31,8 +31,8 @@ const ProjectRow = ({ row, className, ...props }: IProjectRowProps) => {
   };
 
   return (
-    <li className={cn("project-row", className)} {...props}>
-      <TableCell className={cn("project-row__checkbox")}>
+    <tr className={cn("project-row", className)} {...props}>
+      <TableCell className={cn("project-row__checkbox w-[40px]")}>
         <Checkbox />
       </TableCell>
       <TableCell className={cn("project-row__name")}>
@@ -52,10 +52,10 @@ const ProjectRow = ({ row, className, ...props }: IProjectRowProps) => {
         &nbsp;&nbsp;
         {date}
       </TableCell>
-      <TableCell className={cn("project-row__actions")}>
+      <TableCell className={cn("project-row__actions w-[80px]")}>
         <Icon icon="more" className="cursor-pointer" />
       </TableCell>
-    </li>
+    </tr>
   );
 };
 

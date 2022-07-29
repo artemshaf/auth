@@ -4,9 +4,9 @@ import "./TableCell.scss";
 
 const TableCell = ({ className, children, ...props }: ITableCellProps) => {
   return (
-    <div className={cn("custom-table-cell", className)} {...props}>
+    <td className={cn("custom-table-cell", className)} {...props}>
       {children}
-    </div>
+    </td>
   );
 };
 

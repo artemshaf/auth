@@ -7,6 +7,6 @@ interface IMicroCard {
 }
 
 export interface IMicroCardProps
-  extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+  extends DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement> {
   card: IMicroCard;
 }

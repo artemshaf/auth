@@ -6,10 +6,11 @@ type CardMetadata = {
 };
 
 export interface ILargeCard {
-  img: string;
+  img: string[];
   title: string;
   description: string;
   metadata: CardMetadata[];
+  id: number;
 }
 
 export interface ILargeCardProps

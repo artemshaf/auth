@@ -5,8 +5,8 @@ import Avatar1 from "../../../assets/imgs/avatars/avatar1.png";
 import "./UserInfoBlock.scss";
 
 const UserInfoBlock = ({
-  name = "Louise Thompson",
-  roles = "Enterprise plan",
+  name = "Anonimys",
+  roles = ["Not role"],
   className,
   ...props
 }: IUserInfoBlockProps) => {
@@ -15,7 +15,11 @@ const UserInfoBlock = ({
       <AvatarIcon avatar={Avatar1} className={cn("user-info-block__icon")} />
       <div className={cn("user-info-block__info")}>
         <p className={cn("user-info-block__info__name")}>{name}</p>
-        <p className={cn("user-info-block__info__roles")}>{roles}</p>
+        {roles.map((role, i) => (
+          <p key={role + i} className={cn("user-info-block__info__roles")}>
+            {role}
+          </p>
+        ))}
       </div>
     </div>
   );

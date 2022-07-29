@@ -1,0 +1,39 @@
+@tailwind components;
+@layer components {
+  .question-cards__list,
+  .quick-cards__list {
+    @apply grid md:grid-cols-3 md:gap-7 grid-cols-2 sm:gap-3 gap-1 lg:grid-cols-4 2xl:grid-cols-5 my-10;
+
+    &-item {
+      @apply p-2 md:p-6 border-2 border-grey-300 rounded-lg duration-md sm:p-2 flex flex-col justify-start md:text-sm text-xs;
+
+      &:hover {
+        @apply shadow-md;
+      }
+
+      &__title-block {
+        @apply flex  gap-x-2 md:gap-x-5 items-center mb-3;
+
+        &__img {
+          @apply w-[24px] h-[24px] fill-primary-blue-500 stroke-primary-blue-500;
+
+          &__block {
+            @apply w-[40px] h-[40px] flex items-center justify-center bg-primary-blue-100 rounded-md;
+          }
+        }
+
+        &__title {
+          @apply md:text-xl text-base lg:text-3xl;
+        }
+      }
+
+      &__description {
+        @apply mb-2;
+      }
+
+      &__btn {
+        @apply text-primary-blue-500 self-end mt-auto mr-auto;
+      }
+    }
+  }
+}

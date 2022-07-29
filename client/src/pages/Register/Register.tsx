@@ -4,16 +4,20 @@ import "./Register.scss";
 import cn from "classnames";
 import { Container } from "../../components/Layout/Container/Container";
 import { IRegisterProps } from "./Register.props";
-import { LOGIN_ROUTE } from "../../utils/consts";
-import { useRef, useState } from "react";
+import { LOGIN_ROUTE, MAIN_ROUTE } from "../../utils/consts";
+import { useContext, useEffect, useRef, useState } from "react";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { LOGIN_EMAIL } from "../../env";
+import { Context, store } from "../../store/context";
+import Badge from "../../components/Plain/Badge/Badge";
+import { observer } from "mobx-react-lite";
+import { Navigate } from "react-router-dom";
 
 export type Inputs = {
   email: string;
   username: string;
   password: string;
   confirmPassword: string;
+  isRemember: string;
 };
 
 const Register = ({ className, ...props }: IRegisterProps) => {
@@ -26,14 +30,28 @@ const Register = ({ className, ...props }: IRegisterProps) => {
     clearErrors,
     watch,
   } = useForm<Inputs>();
+  const { store } = useContext(Context);
+  const [error, setError] = useState<string>("");
   const password = useRef<Object>({});
   password.current = watch("password", "");
 
-  const onSubmit: SubmitHandler<Inputs> = (data) => {
-    setDisabled(true);
-    console.log(data);
-    console.log(errors);
-    setDisabled(false);
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      store.checkAuth();
+    }
+  }, [store, error]);
+
+  if (store.isAuth) {
+    return <Navigate to={MAIN_ROUTE} />;
+  }
+
+  const onSubmit: SubmitHandler<Inputs> = async (data) => {
+    const result = await store.registration(data.email, data.password);
+    if (result?.message) {
+      setError(result.message);
+    } else {
+      setError("");
+    }
   };
 
   return (
@@ -47,6 +65,11 @@ const Register = ({ className, ...props }: IRegisterProps) => {
           <h2 className={cn("register__form__descr")}>
             Register in to Dashboard-App
           </h2>
+          {error && (
+            <Badge appearence="red-500" className="block mb-3">
+              {error}
+            </Badge>
+          )}
           <Input
             placeholder="Enter your Email"
             className={cn("register__form__actions__email")}
@@ -117,7 +140,14 @@ const Register = ({ className, ...props }: IRegisterProps) => {
             Confirm Password
           </Input>
           <div className={cn("register__form__actions__block")}>
-            <Checkbox className={cn("register__form__actions__checkbox")}>
+            <Checkbox
+              error={errors.isRemember}
+              className={cn("register__form__actions__checkbox")}
+              {...register("isRemember", {
+                required: { value: true, message: "Согласитесь с нами!" },
+                value: "",
+              })}
+            >
               Rememebr me
             </Checkbox>
             <CustomLink
@@ -128,6 +158,7 @@ const Register = ({ className, ...props }: IRegisterProps) => {
             </CustomLink>
           </div>
           <Button
+            disabled={store.isLoading}
             width="full"
             appearence="primary"
             className={cn("register__form__actions__btn")}
@@ -147,4 +178,4 @@ const Register = ({ className, ...props }: IRegisterProps) => {
     </Container>
   );
 };
-export default Register;
+export default observer(Register);

@@ -1,0 +1,11 @@
+@tailwind components;
+@layer component {
+  .documentation {
+    &__title {
+      @apply text-center pt-14;
+    }
+    &__input {
+      @apply text-center max-w-[650px] mx-auto my-5;
+    }
+  }
+}

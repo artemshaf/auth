@@ -4,6 +4,7 @@ import AuthService from "../services/auth/AuthService";
 import axios, { AxiosError } from "axios";
 import { AuthResponse } from "../models/response/AuthResponse";
 import { API_URL } from "../api";
+import { store } from "./context";
 
 export default class Store {
   user = {} as IUser;
@@ -30,13 +31,12 @@ export default class Store {
     this.setLoading(true);
     try {
       const response = await AuthService.login(email, password);
-      console.log(response);
       localStorage.setItem("token", response.data.accessToken);
       this.setAuth(true);
       this.setUser(response.data.user);
     } catch (e) {
       if (axios.isAxiosError(e)) {
-        console.log((e.response?.data as AxiosError).message);
+        return e.response?.data as AxiosError;
       }
     } finally {
       this.setLoading(false);
@@ -52,14 +52,14 @@ export default class Store {
       this.setUser(response.data.user);
     } catch (e) {
       if (axios.isAxiosError(e)) {
-        console.log((e.response?.data as AxiosError).message);
+        return e.response?.data as AxiosError;
       }
     } finally {
       this.setLoading(false);
     }
   }
 
-  async logout(): Promise<void> {
+  async logout() {
     this.setLoading(true);
     try {
       const response = await AuthService.logout();
@@ -68,7 +68,7 @@ export default class Store {
       this.setUser({} as IUser);
     } catch (e) {
       if (axios.isAxiosError(e)) {
-        console.log((e.response?.data as AxiosError).message);
+        return e.response?.data as AxiosError;
       }
     } finally {
       this.setLoading(false);

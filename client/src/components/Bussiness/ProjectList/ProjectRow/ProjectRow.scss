@@ -1,46 +1,35 @@
 @tailwind components;
 @layer components {
   .project-row {
-    @apply border-b-2 border-grey-300;
-    display: grid;
-    grid-template-columns: [start] 50px [checkend] 2fr 1fr 1fr 1fr 1fr 1fr [actionsstart] 100px [end];
-    //grid-template-areas: "checkbox name status brand peoples type date actions";
-
     & > * {
-      @apply flex items-center capitalize;
+      @apply capitalize;
     }
 
     &__chekbox {
-      //grid-area: chekbox;
+      @apply flex items-center justify-center;
     }
 
     &__name {
-      //grid-area: name;
+      @apply flex items-center;
     }
 
     &__status {
-      //grid-area: status;
     }
 
     &__brand {
-      //grid-area: brand;
     }
 
     &__peoples {
-      //grid-area: peoples;
     }
 
     &__type {
-      //grid-area: type;
     }
 
     &__date {
-      //grid-area: date;
-      @apply justify-evenly;
+      @apply flex items-center;
     }
 
     &__actions {
-      @apply justify-center cursor-pointer;
     }
   }
 }

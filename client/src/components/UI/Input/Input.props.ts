@@ -6,6 +6,7 @@ export interface IInputProps
     HTMLAttributes<HTMLInputElement>,
     HTMLInputElement
   > {
+  value?: string;
   error?: FieldError;
   type?: string;
   appearence?: string;

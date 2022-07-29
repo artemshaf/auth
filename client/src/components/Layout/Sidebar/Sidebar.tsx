@@ -1,4 +1,9 @@
 import cn from "classnames";
+import {
+  disableBodyScroll,
+  enableBodyScroll,
+  clearAllBodyScrollLocks,
+} from "body-scroll-lock";
 import NavAsideFooter from "../../Plain/NavAsideFooter/NavAsideFooter";
 import NavAsideMain from "../../Plain/NavAsideMain/NavAsideMain";
 import Logo from "../../Plain/Logo/Logo";
@@ -6,11 +11,15 @@ import UserInfoBlock from "../../Plain/UserInfoBlock/UserInfoBlock";
 import { ISideBarProps } from "./Sidebar.props";
 import "./Sidebar.scss";
 import Icon from "../../UI/Icon/Icon";
-import { useEffect, useState } from "react";
+import { LegacyRef, useEffect, useRef, useState } from "react";
 import { useMatchMedia } from "../../../hooks/use-match-media";
+import { observer } from "mobx-react-lite";
+import { store } from "../../../store/context";
 
 const Sidebar = ({ className, ...props }: ISideBarProps) => {
   const [isOpen, setIsOpen] = useState<boolean>(false);
+
+  const burgerRef = useRef<HTMLDivElement>();
 
   const { md } = useMatchMedia();
 
@@ -20,17 +29,17 @@ const Sidebar = ({ className, ...props }: ISideBarProps) => {
   };
 
   useEffect(() => {
-    if (md) {
-      console.log("md");
+    if (!md) {
+      return () => {
+        document.body.style.overflow = "auto";
+      };
     }
-  }, []);
-
-  useEffect(() => {
     if (isOpen) {
       document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "auto";
     }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
   }, [isOpen, md]);
 
   return (
@@ -42,19 +51,23 @@ const Sidebar = ({ className, ...props }: ISideBarProps) => {
         {...props}
       >
         <>
-          <Logo />
+          <Icon
+            className="sidebar__burger cursor-pointer"
+            icon="sort"
+            onClick={handleOpen}
+          />
+          <Logo className="sidebar__logo" />
           <NavAsideMain />
           <NavAsideFooter />
-          <UserInfoBlock />
+          <UserInfoBlock
+            className="sidebar__user-info"
+            name={store.user.email ? store.user.email : undefined}
+            roles={store.user.roles ? store.user.roles : [""]}
+          />
         </>
-        <Icon
-          className="sidebar-burger cursor-pointer"
-          icon="sort"
-          onClick={handleOpen}
-        />
       </aside>
     </>
   );
 };
 
-export default Sidebar;
+export default observer(Sidebar);

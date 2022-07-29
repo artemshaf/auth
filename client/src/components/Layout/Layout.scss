@@ -1,9 +1,22 @@
 @tailwind base;
 @layer base {
   .main {
-    @apply flex;
+    @apply grid min-h-screen;
+    grid-template-columns: minmax(240px, 15%) auto;
+    grid-template-rows: auto 1fr auto;
   }
+
+  @media screen and (max-width: 767px) {
+    .main {
+      grid-template-columns: 50px minmax(300px, 1fr);
+      grid-template-rows: auto 1fr auto;
+    }
+  }
+
   .main__body {
-    @apply bg-light w-[100%];
+    @apply bg-light;
+  }
+  .main__aside {
+    @apply bg-light;
   }
 }
